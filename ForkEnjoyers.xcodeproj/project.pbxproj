@@ -17,6 +17,8 @@
 		003F2E942818328800661339 /* ForkEnjoyersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2E932818328800661339 /* ForkEnjoyersUITests.swift */; };
 		003F2E962818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2E952818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift */; };
 		003F2EA328183CF800661339 /* RestaurantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2EA228183CF800661339 /* RestaurantListTableViewController.swift */; };
+		00ACDC98281944DC0072CCD0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC97281944DC0072CCD0 /* Restaurant.swift */; };
+		00ACDC9A281973200072CCD0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC99281973200072CCD0 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		003F2E932818328800661339 /* ForkEnjoyersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkEnjoyersUITests.swift; sourceTree = "<group>"; };
 		003F2E952818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkEnjoyersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		003F2EA228183CF800661339 /* RestaurantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewController.swift; sourceTree = "<group>"; };
+		00ACDC97281944DC0072CCD0 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		00ACDC99281973200072CCD0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		003F2E712818328200661339 /* ForkEnjoyers */ = {
 			isa = PBXGroup;
 			children = (
+				00ACDC96281944BB0072CCD0 /* Models */,
 				003F2E722818328200661339 /* AppDelegate.swift */,
 				003F2E742818328200661339 /* SceneDelegate.swift */,
 				003F2E762818328200661339 /* ViewController.swift */,
@@ -109,6 +114,7 @@
 				003F2E7D2818328700661339 /* LaunchScreen.storyboard */,
 				003F2E802818328700661339 /* Info.plist */,
 				003F2EA228183CF800661339 /* RestaurantListTableViewController.swift */,
+				00ACDC99281973200072CCD0 /* HomeViewController.swift */,
 			);
 			path = ForkEnjoyers;
 			sourceTree = "<group>";
@@ -128,6 +134,14 @@
 				003F2E952818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift */,
 			);
 			path = ForkEnjoyersUITests;
+			sourceTree = "<group>";
+		};
+		00ACDC96281944BB0072CCD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00ACDC97281944DC0072CCD0 /* Restaurant.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00ACDC98281944DC0072CCD0 /* Restaurant.swift in Sources */,
 				003F2E772818328200661339 /* ViewController.swift in Sources */,
 				003F2E732818328200661339 /* AppDelegate.swift in Sources */,
 				003F2EA328183CF800661339 /* RestaurantListTableViewController.swift in Sources */,
 				003F2E752818328200661339 /* SceneDelegate.swift in Sources */,
+				00ACDC9A281973200072CCD0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
