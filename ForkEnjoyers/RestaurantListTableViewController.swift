@@ -13,43 +13,43 @@ class RestaurantListTableViewController: UITableViewController {
     // Faire un call API pour récupérer une liste de restaurant
     
 
-    var browsers:[String] = []
+    var restaurants: [Restaurant] = []
+    var restauranIds: [String] = ["1235", "6861", "1114", "1339", "1348", "1354", "1361", "1373", "136", "1380"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("view did load")
+
         // On lance la requète
         let config = URLSessionConfiguration.default
-               let session = URLSession(configuration: config)
-               
-               let url = URL(string: "http://api.deezer.com/search?q=a")!
-               
-               let task = session.dataTask(with: url) { (data, response, error) in
-                   if error != nil {
-                       print(error!.localizedDescription)
-                   } else {
-                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                           if let data = json as? [String: AnyObject] {
-                               
-                               if let items = data["data"] as? [[String: AnyObject]] {
-                                   for item in items {
-                                       print(item["link"]!)
-                                       self.browsers.append(item["link"]! as! String)
-                                       /*if let artist = Artist(json: item) {
-                                           self.browsers.append(artist)
-                                       }*/
-                                       
-                                   }
+        let session = URLSession(configuration: config)
+        
+        for restaurantId in restauranIds {
+            let url = URL(string: "https://api.lafourchette.com/api?key=IPHONEPRODEDCRFV&method=restaurant_get_info&id_restaurant=" + restaurantId)!
+           print(url)
+            let task = session.dataTask(with: url) { (data, response, error) in
+               if error != nil {
+                   print(error!.localizedDescription)
+               } else {
+                   if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                       if let data = json as? [String: AnyObject] {
+                           if let dataObject = data["data"] as? [String: AnyObject]{
+                               if let restaurant = Restaurant(json: dataObject){
+                                   self.restaurants.append(restaurant)
+                                   print(restaurant.name)
                                }
                            }
                        }
                    }
-                   
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-                   
                }
-               task.resume()
+               
+               DispatchQueue.main.async {
+                   self.tableView.reloadData()
+               }
+               
+            }
+            task.resume()
+        }
+       
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -69,7 +69,7 @@ class RestaurantListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODOOO
         // Return self.restaurants.count
-        return self.browsers.count
+        return self.restaurants.count
     }
 
     
@@ -79,7 +79,7 @@ class RestaurantListTableViewController: UITableViewController {
         // TODOOO
         // Configure cell for appropriate restaurant cells
 
-        cell.textLabel?.text = self.browsers[indexPath.row]
+        cell.textLabel?.text = self.restaurants[indexPath.row].name
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.green
