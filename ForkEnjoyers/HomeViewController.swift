@@ -6,10 +6,19 @@
 //
 
 import UIKit
+import MapKit
+
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var RestaurantTableView: UITableView!
+    @IBOutlet weak var toggleListPlan: UISegmentedControl!
+    @IBOutlet weak var leftrestaurantTableViewContraint: NSLayoutConstraint!
+    
+    let locationManager = CLLocationManager()
+    
+    var mapService = MapService()
     
     var restaurants: [Restaurant] = []
     var restauranIds: [String] = ["1235", "6861", "1114", "1339", "1348", "1354", "1361", "1373", "136", "1380"]
@@ -26,7 +35,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         for restaurantId in restauranIds {
             let url = URL(string: "https://api.lafourchette.com/api?key=IPHONEPRODEDCRFV&method=restaurant_get_info&id_restaurant=" + restaurantId)!
-           print(url)
             let task = session.dataTask(with: url) { (data, response, error) in
                if error != nil {
                    print(error!.localizedDescription)
@@ -36,7 +44,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                            if let dataObject = data["data"] as? [String: AnyObject]{
                                if let restaurant = Restaurant(json: dataObject){
                                    self.restaurants.append(restaurant)
-                                   print(restaurant.name)
                                }
                            }
                        }
@@ -46,16 +53,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                DispatchQueue.main.async {
                    self.RestaurantTableView.reloadData()
                }
-               
             }
             task.resume()
         }
-        
-
-        // Do any additional setup after loading the view.
     }
     
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -80,5 +82,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return cell
     }
-
+    
+    func moveElements(position: CGFloat) {
+        self.leftrestaurantTableViewContraint.constant = position
+        UIView.animate(withDuration: 0.6) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    @IBAction func ChangeValueToggle(_ sender: Any) {
+        switch self.toggleListPlan.selectedSegmentIndex {
+            case 0:
+            moveElements(position: 0)
+            case 1:
+            moveElements(position: -self.RestaurantTableView.frame.width)
+        default:
+            print("nothing")
+        }
+        
+    }
+    
 }

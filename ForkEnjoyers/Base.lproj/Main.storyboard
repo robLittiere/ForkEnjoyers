@@ -51,6 +51,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ERC-yX-NHw">
+                                <rect key="frame" x="414" y="194" width="414" height="619"/>
+                            </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7zm-i0-u36">
                                 <rect key="frame" x="0.0" y="194" width="414" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,19 +81,39 @@
                                     <outlet property="delegate" destination="YtX-To-6pS" id="RTh-zr-BnO"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SSp-Uq-Fj1">
+                                <rect key="frame" x="120" y="104" width="97" height="32"/>
+                                <segments>
+                                    <segment title="Liste"/>
+                                    <segment title="Plan"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ChangeValueToggle:" destination="YtX-To-6pS" eventType="valueChanged" id="X7k-vb-Dtn"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KKO-Sr-hLh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="SSp-Uq-Fj1" firstAttribute="top" secondItem="KKO-Sr-hLh" secondAttribute="top" constant="60" id="0je-bs-7kA"/>
                             <constraint firstItem="7zm-i0-u36" firstAttribute="leading" secondItem="KKO-Sr-hLh" secondAttribute="leading" id="3hQ-YL-HiG"/>
+                            <constraint firstItem="SSp-Uq-Fj1" firstAttribute="leading" secondItem="KKO-Sr-hLh" secondAttribute="leading" constant="120" id="BHd-yp-hyo"/>
+                            <constraint firstItem="ERC-yX-NHw" firstAttribute="top" secondItem="KKO-Sr-hLh" secondAttribute="top" constant="150" id="IqQ-Qy-j1h"/>
+                            <constraint firstItem="KKO-Sr-hLh" firstAttribute="bottom" secondItem="ERC-yX-NHw" secondAttribute="bottom" id="Lrj-04-ntO"/>
+                            <constraint firstItem="ERC-yX-NHw" firstAttribute="leading" secondItem="7zm-i0-u36" secondAttribute="trailing" id="SNu-gf-rCh"/>
+                            <constraint firstItem="KKO-Sr-hLh" firstAttribute="trailing" secondItem="SSp-Uq-Fj1" secondAttribute="trailing" constant="197" id="VqV-EG-rlO"/>
                             <constraint firstItem="7zm-i0-u36" firstAttribute="top" secondItem="KKO-Sr-hLh" secondAttribute="top" constant="150" id="clz-rW-JXQ"/>
                             <constraint firstItem="KKO-Sr-hLh" firstAttribute="bottom" secondItem="7zm-i0-u36" secondAttribute="bottom" id="h7o-CT-fA8"/>
-                            <constraint firstItem="KKO-Sr-hLh" firstAttribute="trailing" secondItem="7zm-i0-u36" secondAttribute="trailing" id="o2P-MI-5mJ"/>
+                            <constraint firstItem="ERC-yX-NHw" firstAttribute="width" secondItem="7zm-i0-u36" secondAttribute="width" id="hG8-gp-sng"/>
+                            <constraint firstItem="7zm-i0-u36" firstAttribute="width" secondItem="KKO-Sr-hLh" secondAttribute="width" id="xJV-7i-6gp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Restaurants" image="homekit" catalog="system" id="v9c-yb-qcf"/>
                     <connections>
                         <outlet property="RestaurantTableView" destination="7zm-i0-u36" id="ock-c2-n5m"/>
+                        <outlet property="leftrestaurantTableViewContraint" destination="3hQ-YL-HiG" id="PaD-Rv-ewM"/>
+                        <outlet property="mapView" destination="ERC-yX-NHw" id="Lgv-uV-iDZ"/>
+                        <outlet property="toggleListPlan" destination="SSp-Uq-Fj1" id="TNW-cW-mlY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xrj-Lj-b5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
