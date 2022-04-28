@@ -16,9 +16,11 @@
 		003F2E8A2818328800661339 /* ForkEnjoyersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2E892818328800661339 /* ForkEnjoyersTests.swift */; };
 		003F2E942818328800661339 /* ForkEnjoyersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2E932818328800661339 /* ForkEnjoyersUITests.swift */; };
 		003F2E962818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2E952818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift */; };
-		003F2EA328183CF800661339 /* RestaurantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F2EA228183CF800661339 /* RestaurantListTableViewController.swift */; };
+		009E8B4F281A80B000417923 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E8B4E281A80B000417923 /* UIImageExtension.swift */; };
 		00ACDC98281944DC0072CCD0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC97281944DC0072CCD0 /* Restaurant.swift */; };
 		00ACDC9A281973200072CCD0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC99281973200072CCD0 /* HomeViewController.swift */; };
+		00ACDC9D281978290072CCD0 /* RestaurantDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC9C281978290072CCD0 /* RestaurantDataManager.swift */; };
+		00ACDCA328198F720072CCD0 /* RestaurantTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDCA128198F720072CCD0 /* RestaurantTableCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +54,11 @@
 		003F2E8F2818328800661339 /* ForkEnjoyersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForkEnjoyersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		003F2E932818328800661339 /* ForkEnjoyersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkEnjoyersUITests.swift; sourceTree = "<group>"; };
 		003F2E952818328800661339 /* ForkEnjoyersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkEnjoyersUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		003F2EA228183CF800661339 /* RestaurantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewController.swift; sourceTree = "<group>"; };
+		009E8B4E281A80B000417923 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		00ACDC97281944DC0072CCD0 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		00ACDC99281973200072CCD0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		00ACDC9C281978290072CCD0 /* RestaurantDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataManager.swift; sourceTree = "<group>"; };
+		00ACDCA128198F720072CCD0 /* RestaurantTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,9 @@
 		003F2E712818328200661339 /* ForkEnjoyers */ = {
 			isa = PBXGroup;
 			children = (
+				009E8B4D281A805A00417923 /* Extensions */,
+				00ACDC9E28198DD80072CCD0 /* Views */,
+				00ACDC9B281978110072CCD0 /* Managers */,
 				00ACDC96281944BB0072CCD0 /* Models */,
 				003F2E722818328200661339 /* AppDelegate.swift */,
 				003F2E742818328200661339 /* SceneDelegate.swift */,
@@ -113,7 +120,6 @@
 				003F2E7B2818328700661339 /* Assets.xcassets */,
 				003F2E7D2818328700661339 /* LaunchScreen.storyboard */,
 				003F2E802818328700661339 /* Info.plist */,
-				003F2EA228183CF800661339 /* RestaurantListTableViewController.swift */,
 				00ACDC99281973200072CCD0 /* HomeViewController.swift */,
 			);
 			path = ForkEnjoyers;
@@ -136,12 +142,36 @@
 			path = ForkEnjoyersUITests;
 			sourceTree = "<group>";
 		};
+		009E8B4D281A805A00417923 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				009E8B4E281A80B000417923 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		00ACDC96281944BB0072CCD0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				00ACDC97281944DC0072CCD0 /* Restaurant.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		00ACDC9B281978110072CCD0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				00ACDC9C281978290072CCD0 /* RestaurantDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		00ACDC9E28198DD80072CCD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00ACDCA128198F720072CCD0 /* RestaurantTableCellView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +308,9 @@
 				00ACDC98281944DC0072CCD0 /* Restaurant.swift in Sources */,
 				003F2E772818328200661339 /* ViewController.swift in Sources */,
 				003F2E732818328200661339 /* AppDelegate.swift in Sources */,
-				003F2EA328183CF800661339 /* RestaurantListTableViewController.swift in Sources */,
+				00ACDC9D281978290072CCD0 /* RestaurantDataManager.swift in Sources */,
+				00ACDCA328198F720072CCD0 /* RestaurantTableCellView.swift in Sources */,
+				009E8B4F281A80B000417923 /* UIImageExtension.swift in Sources */,
 				003F2E752818328200661339 /* SceneDelegate.swift in Sources */,
 				00ACDC9A281973200072CCD0 /* HomeViewController.swift in Sources */,
 			);
