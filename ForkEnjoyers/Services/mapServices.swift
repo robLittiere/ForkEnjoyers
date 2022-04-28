@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 import MapKit
 
-class MapService {
+class MapService: UIViewController {
+    
     let locationManager = CLLocationManager()
     
     func checkLocationServices() {
@@ -21,7 +22,7 @@ class MapService {
       }
     }
     
-    func alertNoGPS() {
+    func alertNoGPS(viewController: UIViewController!) {
         let dialogMessage = UIAlertController(title: "Attention", message: "Vous n'avez pas authoriser la localisation", preferredStyle: .alert)
          
          // Create OK button with action handler
@@ -30,12 +31,11 @@ class MapService {
           })
          
          //Add OK button to a dialog message
-         dialogMessage.addAction(ok)
-         // Present Alert to
-        self.present(dialogMessage, animated: true, completion: nil)
+         dialogMessage.addAction(ok         // Present Alert to
+        viewController.present(dialogMessage, animated: true, completion: nil)
     }
     
-    func checkLocationAuthorization() {
+    func checkLocationAuthorization(mapView: MKMapView!) {
       switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse: mapView.showsUserLocation = true
         case .denied: alertNoGPS()

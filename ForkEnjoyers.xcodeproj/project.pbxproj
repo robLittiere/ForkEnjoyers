@@ -21,7 +21,6 @@
 		00ACDC9A281973200072CCD0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC99281973200072CCD0 /* HomeViewController.swift */; };
 		00ACDC9D281978290072CCD0 /* RestaurantDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDC9C281978290072CCD0 /* RestaurantDataManager.swift */; };
 		00ACDCA328198F720072CCD0 /* RestaurantTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ACDCA128198F720072CCD0 /* RestaurantTableCellView.swift */; };
-		6A54410E281A85BE003C27CF /* MapServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54410D281A85BE003C27CF /* MapServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		00ACDC99281973200072CCD0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		00ACDC9C281978290072CCD0 /* RestaurantDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataManager.swift; sourceTree = "<group>"; };
 		00ACDCA128198F720072CCD0 /* RestaurantTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableCellView.swift; sourceTree = "<group>"; };
-		6A54410D281A85BE003C27CF /* MapServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +178,6 @@
 		6A54410A281A849E003C27CF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				6A54410D281A85BE003C27CF /* MapServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,7 +321,6 @@
 				009E8B4F281A80B000417923 /* UIImageExtension.swift in Sources */,
 				003F2E752818328200661339 /* SceneDelegate.swift in Sources */,
 				00ACDC9A281973200072CCD0 /* HomeViewController.swift in Sources */,
-				6A54410E281A85BE003C27CF /* MapServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,8 +497,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4CND5ZKM42;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ForkEnjoyers/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use for your purpose";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -513,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = forkenjoyers.ForkEnjoyers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ForkEnjoyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -528,8 +526,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4CND5ZKM42;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ForkEnjoyers/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use for your purpose";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -540,7 +540,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = forkenjoyers.ForkEnjoyers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ForkEnjoyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

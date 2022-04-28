@@ -17,7 +17,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var leftrestaurantTableViewContraint: NSLayoutConstraint!
     
     var restaurants:[Restaurant] = []
-    var mapService = MapService()
     let locationManager = CLLocationManager()
     
     var dataManager = RestaurantDataManager()
@@ -25,6 +24,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.checkLocationServices()
        
         self.RestaurantTableView.delegate = self
         self.RestaurantTableView.dataSource = self
@@ -33,10 +34,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         for restaurantId in dataManager.restauranIds {
             dataManager.getData(restaurantId: restaurantId) { Restaurant in
                 DispatchQueue.main.async {
-                    // PUT LEO CODE
-                    
+            
                     self.restaurants.append(Restaurant)
                     self.RestaurantTableView.reloadData()
+                    
+                    // Pin and resize Map
+                    self.fetchRestaurantsOnMap(Restaurant)
+                    self.zoomInRegion(self.restaurants)
                 }
             }
         }
@@ -66,7 +70,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func moveElements(position: CGFloat) {
         self.leftrestaurantTableViewContraint.constant = position
-        UIView.animate(withDuration: 0.6) {
+        UIView.animate(withDuration: 0.15) {
             self.view.layoutIfNeeded()
         }
     }
@@ -80,6 +84,75 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("nothing")
         }
         
+    }
+    func checkLocationServices() {
+      if CLLocationManager.locationServicesEnabled() {
+        checkLocationAuthorization()
+      } else {
+        // Show alert letting the user know they have to turn this on.
+          
+      }
+    }
+    
+    func alertNoGPS() {
+        let dialogMessage = UIAlertController(title: "Attention", message: "Vous n'avez pas authoriser la localisation", preferredStyle: .alert)
+         
+         // Create OK button with action handler
+         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             print("User know that localisation is not allowed")
+          })
+         
+         //Add OK button to a dialog message
+         dialogMessage.addAction(ok)
+         // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    func checkLocationAuthorization() {
+      switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse: mapView.showsUserLocation = true
+        case .denied: alertNoGPS()
+        case .notDetermined: locationManager.requestWhenInUseAuthorization()
+          mapView.showsUserLocation = true
+        case .restricted: alertNoGPS()
+        case .authorizedAlways: mapView.showsUserLocation = true
+      }
+    }
+    
+    func fetchRestaurantsOnMap(_ restaurant: Restaurant) {
+        let annotations = MKPointAnnotation()
+        annotations.title = restaurant.name
+        annotations.coordinate = CLLocationCoordinate2D(latitude:
+          restaurant.gps_lat, longitude: restaurant.gps_long)
+        mapView.addAnnotation(annotations)
+    }
+    
+    func zoomInRegion(_ restaurants: [Restaurant]) {
+        var maxLat: CLLocationDegrees = restaurants[0].gps_lat
+        var maxLong: CLLocationDegrees = restaurants[0].gps_long
+        var minLat: CLLocationDegrees = restaurants[0].gps_lat
+        var minLong: CLLocationDegrees = restaurants[0].gps_long
+        
+        for restaurant in restaurants {
+            if (restaurant.gps_lat < minLat) {
+                    minLat = restaurant.gps_lat
+                }
+
+                if (restaurant.gps_long < minLong) {
+                    minLong = restaurant.gps_long
+                }
+
+                if (restaurant.gps_lat > maxLat) {
+                    maxLat = restaurant.gps_lat
+                }
+
+                if (restaurant.gps_long > maxLong) {
+                    maxLong = restaurant.gps_long
+                }
+        }
+        let distance = CLLocation(latitude: maxLat, longitude: maxLong).distance(from: CLLocation(latitude: minLat, longitude: minLong))*1.1
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(((maxLat + minLat) * 0.5), ((maxLong + minLong) * 0.5)), latitudinalMeters: distance, longitudinalMeters: distance)
+        self.mapView.setRegion(region, animated: true)
     }
     
 }
