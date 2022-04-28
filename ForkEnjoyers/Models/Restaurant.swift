@@ -17,17 +17,18 @@ struct Restaurant {
     let zipcode: String
     let country: String
     let phone: String
-    let description: String
+    let description: String?
     let min_price: Int
     let specialty: String
     let hours_open: String
     let image_urls: [String:String]
-    let rating: Int
+    let rating: AnyObject
     let number_reviews: Int
 }
 
 extension Restaurant {
     init?(json: [String: AnyObject]){
+        let description = json["description"] as? String
         guard   let name = json["name"] as? String,
                 let portal = json["portal_url"] as? String,
                 let gps_lat = json["gps_lat"] as? Double,
@@ -37,12 +38,11 @@ extension Restaurant {
                 let zipcode = json["zipcode"] as? String,
                 let country = json["country"] as? String,
                 let phone = json["phone"] as? String,
-                let description = json["description"] as? String,
                 let min_price = json["min_price"] as? Int,
                 let specialty = json["speciality"] as? String,
                 let hours_open = json["hour_open"] as? String,
                 let image_urls = json["pics_main"] as? [String:String],
-                let rating = json["trip_advisor_avg_rating"] as? Int,
+                let rating = json["trip_advisor_avg_rating"],
                 let number_reviews = json["trip_advisor_review_count"] as? Int
 
         else {

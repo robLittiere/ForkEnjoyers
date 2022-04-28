@@ -58,22 +58,58 @@
                                 <rect key="frame" x="0.0" y="194" width="414" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="a2D-xf-DVE" style="IBUITableViewCellStyleDefault" id="v7L-za-NUt">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="163" id="v7L-za-NUt" customClass="RestaurantTableCellView" customModule="ForkEnjoyers" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v7L-za-NUt" id="Ll3-hG-2f5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a2D-xf-DVE">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uu4-a6-q5j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW9-XV-gat">
+                                                    <rect key="frame" x="58" y="58" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spécalité : Indienne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk6-a2-zeM">
+                                                    <rect key="frame" x="58" y="106" width="230" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tZ-dW-AQB">
+                                                    <rect key="frame" x="296" y="119" width="59" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Mk6-a2-zeM" secondAttribute="trailing" constant="126" id="0lo-tt-7ud"/>
+                                                <constraint firstAttribute="trailing" secondItem="1tZ-dW-AQB" secondAttribute="trailing" constant="59" id="CHc-Nz-Ymk"/>
+                                                <constraint firstItem="1tZ-dW-AQB" firstAttribute="leading" secondItem="Ll3-hG-2f5" secondAttribute="leading" constant="296" id="EbR-TR-l74"/>
+                                                <constraint firstItem="uu4-a6-q5j" firstAttribute="top" secondItem="Ll3-hG-2f5" secondAttribute="top" id="VHh-hP-Fsy"/>
+                                                <constraint firstItem="Mk6-a2-zeM" firstAttribute="top" secondItem="uu4-a6-q5j" secondAttribute="bottom" constant="8" symbolic="YES" id="WIL-XG-0JA"/>
+                                                <constraint firstItem="1tZ-dW-AQB" firstAttribute="top" secondItem="Ll3-hG-2f5" secondAttribute="top" constant="119" id="Zhi-2O-TGR"/>
+                                                <constraint firstItem="uu4-a6-q5j" firstAttribute="leading" secondItem="HW9-XV-gat" secondAttribute="trailing" constant="-100" id="dPG-4b-fV8"/>
+                                                <constraint firstAttribute="trailing" secondItem="uu4-a6-q5j" secondAttribute="trailing" id="j0p-tF-zJ4"/>
+                                                <constraint firstAttribute="bottom" secondItem="1tZ-dW-AQB" secondAttribute="bottom" constant="11" id="jfL-Ek-1EP"/>
+                                                <constraint firstItem="uu4-a6-q5j" firstAttribute="leading" secondItem="Ll3-hG-2f5" secondAttribute="leading" id="rLd-Ae-veK"/>
+                                                <constraint firstItem="HW9-XV-gat" firstAttribute="top" secondItem="uu4-a6-q5j" secondAttribute="bottom" constant="-40" id="sEW-oU-f2O"/>
+                                                <constraint firstItem="Mk6-a2-zeM" firstAttribute="leading" secondItem="Ll3-hG-2f5" secondAttribute="leading" constant="58" id="y3Z-TB-PoQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mk6-a2-zeM" secondAttribute="bottom" constant="36" id="zn2-wK-q6Z"/>
+                                                <constraint firstAttribute="bottom" secondItem="uu4-a6-q5j" secondAttribute="bottom" constant="65" id="zwc-5a-s1S"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="priceTextView" destination="1tZ-dW-AQB" id="nTO-Rt-dbB"/>
+                                            <outlet property="restaurantImageView" destination="uu4-a6-q5j" id="Nbo-K5-YII"/>
+                                            <outlet property="restaurantNameView" destination="HW9-XV-gat" id="GdZ-LS-Dss"/>
+                                            <outlet property="specialtyTextView" destination="Mk6-a2-zeM" id="t5w-5e-eqP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -118,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xrj-Lj-b5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="67"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="66.964285714285708"/>
         </scene>
         <!--Item-->
         <scene sceneID="333-IO-xnF">
