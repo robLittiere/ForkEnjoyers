@@ -60,14 +60,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // TODOOO
         // Configure cell for appropriate restaurant cells
+        
         let restaurant = self.restaurants[indexPath.row]
         cell.restaurantNameView.text = restaurant.name
-        cell.priceTextView.text = String(restaurant.min_price) + "€"
+        cell.adressTextView.text = restaurant.address + ", " + restaurant.city
+        cell.ratingLabelView.text = String(describing: restaurant.rating)
+        cell.priceTextView.text = String(restaurant.min_price) + " €"
         cell.restaurantImageView.load(urlString: restaurant.image_urls["612x344"]!)
+        cell.specialtyTextView.text = "Food specialty : " + restaurant.specialty
+        cell.clipsToBounds = true
+        tableView.separatorStyle = .none
+
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0;//Choose your custom row height
+    }
+    
+    
+    
+    
+    
+    
+    // MAPPING
     func moveElements(position: CGFloat) {
         self.leftrestaurantTableViewContraint.constant = position
         UIView.animate(withDuration: 0.15) {
