@@ -85,6 +85,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // MAPPING
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "uniquerestaurantviewcontroller") as? UniqueRestaurantViewController {
+            
+            vc.restaurant = self.restaurants[indexPath.row]
+            vc.restaurants = self.restaurants
+            vc.actualIndex = indexPath.row
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func moveElements(position: CGFloat) {
         self.leftrestaurantTableViewContraint.constant = position
         UIView.animate(withDuration: 0.15) {
