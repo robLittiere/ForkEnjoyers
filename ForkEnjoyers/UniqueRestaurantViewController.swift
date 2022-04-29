@@ -69,6 +69,7 @@ class UniqueRestaurantViewController: UIViewController {
     @IBOutlet weak var specialityLabel: UILabel!
     @IBOutlet weak var minPriceLabel: UILabel!
     @IBOutlet weak var reviewsLabel: UILabel!
+    @IBOutlet weak var favImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,11 +92,16 @@ class UniqueRestaurantViewController: UIViewController {
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
         let tap = UITapGestureRecognizer(target: self, action:  #selector(self.callTo(_:)))
+        self.phoneView.isUserInteractionEnabled = true
         self.phoneView.addGestureRecognizer(tap)
         self.descriptionLabel.text = restaurant.description ?? "Pas de description désolé 😬"
         self.specialityLabel.text = "Spécialité: \(restaurant.specialty)"
         self.minPriceLabel.text = "Prix minimal: \(restaurant.min_price) €"
         self.reviewsLabel.text = "\(restaurant.number_reviews) avis"
+        let tapFav = UITapGestureRecognizer(target: self, action:  #selector(self.toggleFav(_:)))
+        self.favImage.isUserInteractionEnabled = true
+        self.favImage.addGestureRecognizer(tapFav)
+        
     }
     
     func getUIColor(hex: String, alpha: Double = 1.0) -> UIColor? {
@@ -126,6 +132,15 @@ class UniqueRestaurantViewController: UIViewController {
             
             self.present(vc, animated: true, completion: nil)
         }
+    }
+    @objc func toggleFav(_ sender:UITapGestureRecognizer? = nil){
+        if self.favImage.image == UIImage(systemName: "heart"){
+            self.favImage.image = UIImage(systemName: "heart.fill")
+        } else {
+            self.favImage.image = UIImage(systemName: "heart")
+        }
+        
+            
     }
     @objc func callTo(_ sender:UITapGestureRecognizer? = nil){
         self.phoneView.backgroundColor = UIColor.lightGray

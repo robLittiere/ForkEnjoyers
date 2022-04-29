@@ -38,6 +38,14 @@
                                     <constraint firstAttribute="height" constant="200" id="eGT-BR-gIf"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hSn-jF-mJq">
+                                <rect key="frame" x="378" y="56" width="35" height="32"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Fce-ze-ysQ"/>
+                                    <constraint firstAttribute="height" constant="35" id="qQ3-T6-uUY"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czr-7B-xw0">
                                 <rect key="frame" x="30" y="199" width="61" height="25.333333333333343"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,6 +263,7 @@
                         <viewLayoutGuide key="safeArea" id="g9c-Ew-NAi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g9c-Ew-NAi" firstAttribute="trailing" secondItem="hSn-jF-mJq" secondAttribute="trailing" constant="15" id="1dO-XB-jHv"/>
                             <constraint firstItem="Txv-zJ-DZg" firstAttribute="leading" secondItem="g9c-Ew-NAi" secondAttribute="leading" constant="20" id="2xX-qV-NGu"/>
                             <constraint firstItem="czr-7B-xw0" firstAttribute="leading" secondItem="g9c-Ew-NAi" secondAttribute="leading" constant="30" id="59F-sF-LuH"/>
                             <constraint firstItem="czr-7B-xw0" firstAttribute="top" secondItem="jJv-e0-fXc" secondAttribute="bottom" constant="-45" id="A5Y-3u-0OH"/>
@@ -265,6 +274,7 @@
                             <constraint firstItem="jJv-e0-fXc" firstAttribute="leading" secondItem="g9c-Ew-NAi" secondAttribute="leading" id="PTz-hR-FGp"/>
                             <constraint firstItem="PVV-VY-KEK" firstAttribute="top" secondItem="jJv-e0-fXc" secondAttribute="bottom" id="SSU-tM-mAM"/>
                             <constraint firstItem="g9c-Ew-NAi" firstAttribute="trailing" secondItem="PVV-VY-KEK" secondAttribute="trailing" id="eLk-fh-ZcN"/>
+                            <constraint firstItem="hSn-jF-mJq" firstAttribute="top" secondItem="g9c-Ew-NAi" secondAttribute="top" constant="10" id="gYH-pF-LfB"/>
                             <constraint firstItem="Txv-zJ-DZg" firstAttribute="top" secondItem="PVV-VY-KEK" secondAttribute="bottom" constant="8" id="oxH-ci-OXO"/>
                             <constraint firstItem="g9c-Ew-NAi" firstAttribute="trailing" secondItem="jJv-e0-fXc" secondAttribute="trailing" id="qdZ-qA-sKk"/>
                             <constraint firstItem="PVV-VY-KEK" firstAttribute="leading" secondItem="g9c-Ew-NAi" secondAttribute="leading" id="vny-45-nfn"/>
@@ -275,6 +285,7 @@
                     <connections>
                         <outlet property="adressLabel" destination="t20-MO-y7o" id="E5R-1s-Gde"/>
                         <outlet property="descriptionLabel" destination="7o7-hz-oaw" id="XfV-27-uXv"/>
+                        <outlet property="favImage" destination="hSn-jF-mJq" id="pn5-yt-7cT"/>
                         <outlet property="hourOpenLabel" destination="xEr-v7-HBP" id="mgz-uS-99i"/>
                         <outlet property="minPriceLabel" destination="ndt-TZ-Mza" id="ZhR-op-gxS"/>
                         <outlet property="moreInfoButton" destination="Txv-zJ-DZg" id="3vh-tR-vRC"/>
@@ -478,6 +489,7 @@
     </scenes>
     <resources>
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
